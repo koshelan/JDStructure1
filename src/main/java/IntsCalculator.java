@@ -1,6 +1,11 @@
 public class IntsCalculator implements Ints {
+
+    protected final Calculator target;
+
+    public IntsCalculator() { this.target = new Calculator(); }
+
     public int sum(int arg0, int arg1) {
-        return (int) new Calculator().newFormula()
+        return (int) target.newFormula()
                 .addOperand(arg0)
                 .addOperand(arg1)
                 .calculate(Calculator.Operation.SUM)
@@ -8,7 +13,7 @@ public class IntsCalculator implements Ints {
     }
 
     public int mult(int arg0, int arg1) {
-        return (int) new Calculator().newFormula()
+        return (int) target.newFormula()
                 .addOperand(arg0)
                 .addOperand(arg1)
                 .calculate(Calculator.Operation.MULT)
@@ -16,7 +21,7 @@ public class IntsCalculator implements Ints {
     }
 
     public int pow(int a, int b) {
-        return (int) new Calculator().newFormula()
+        return (int) target.newFormula()
                 .addOperand(a)
                 .addOperand(b)
                 .calculate(Calculator.Operation.POW)
